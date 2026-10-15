@@ -1,0 +1,55 @@
+{
+  "name": "Device",
+  "type": "object",
+  "properties": {
+    "device_id": {
+      "type": "string",
+      "description": "Unique device identifier, e.g. SIM-NODE-01"
+    },
+    "name": {
+      "type": "string"
+    },
+    "farm_id": {
+      "type": "string"
+    },
+    "farm_name": {
+      "type": "string"
+    },
+    "sensor_types": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Sensors this node reports"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "offline",
+        "never_reported"
+      ],
+      "default": "never_reported"
+    },
+    "last_reading_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "ingestion_method": {
+      "type": "string",
+      "enum": [
+        "simulated",
+        "http_ingest",
+        "mqtt_planned"
+      ],
+      "default": "simulated"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "device_id",
+    "farm_id"
+  ]
+}

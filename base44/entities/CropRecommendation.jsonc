@@ -1,0 +1,100 @@
+{
+  "name": "CropRecommendation",
+  "type": "object",
+  "properties": {
+    "farm_id": {
+      "type": "string"
+    },
+    "farm_name": {
+      "type": "string"
+    },
+    "nitrogen_kg_ha": {
+      "type": "number"
+    },
+    "phosphorus_kg_ha": {
+      "type": "number"
+    },
+    "potassium_kg_ha": {
+      "type": "number"
+    },
+    "ph": {
+      "type": "number"
+    },
+    "temperature_c": {
+      "type": "number"
+    },
+    "humidity_percent": {
+      "type": "number"
+    },
+    "rainfall_mm": {
+      "type": "number"
+    },
+    "season": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "inputs_source": {
+      "type": "string",
+      "enum": [
+        "user_entered",
+        "soil_sample"
+      ],
+      "default": "user_entered"
+    },
+    "climate_source": {
+      "type": "string",
+      "enum": [
+        "user_entered",
+        "live_weather"
+      ],
+      "default": "user_entered",
+      "description": "Where temperature and humidity came from: typed in, or read live from the weather provider at the moment of the recommendation."
+    },
+    "top_crop": {
+      "type": "string"
+    },
+    "top_score": {
+      "type": "number",
+      "description": "Suitability score 0-100 from rule-based scoring. Not a probability of success."
+    },
+    "ranking": {
+      "type": "array",
+      "description": "Ranked alternatives with their scores and limiting factors",
+      "items": {
+        "type": "object",
+        "properties": {
+          "crop": {
+            "type": "string"
+          },
+          "score": {
+            "type": "number"
+          },
+          "supports": {
+            "type": "string"
+          },
+          "limiting": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "top_crop",
+    "model_id"
+  ]
+}

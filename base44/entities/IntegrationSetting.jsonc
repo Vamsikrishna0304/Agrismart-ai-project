@@ -1,0 +1,35 @@
+{
+  "name": "IntegrationSetting",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Integration key, e.g. weather_provider"
+    },
+    "label": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "connected",
+        "disconnected",
+        "configuration_missing",
+        "temporarily_unavailable",
+        "demo_mode"
+      ],
+      "default": "configuration_missing"
+    },
+    "detail": {
+      "type": "string"
+    },
+    "checked_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "required": [
+    "key",
+    "state"
+  ]
+}

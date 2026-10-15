@@ -1,0 +1,42 @@
+{
+  "name": "IrrigationRule",
+  "type": "object",
+  "properties": {
+    "crop_name": {
+      "type": "string"
+    },
+    "min_soil_moisture_percent": {
+      "type": "number",
+      "description": "Trigger irrigation when soil moisture falls below this value"
+    },
+    "target_soil_moisture_percent": {
+      "type": "number",
+      "description": "Moisture level to aim for after irrigating"
+    },
+    "rain_skip_mm": {
+      "type": "number",
+      "description": "Skip irrigation when expected rainfall is at least this many millimetres"
+    },
+    "critical_offset_percent": {
+      "type": "number",
+      "default": 8,
+      "description": "How far below the minimum counts as a critical, alert-worthy deficit"
+    },
+    "max_reading_age_minutes": {
+      "type": "number",
+      "default": 360,
+      "description": "Readings older than this are treated as stale and not used for a recommendation"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "crop_name",
+    "min_soil_moisture_percent"
+  ]
+}

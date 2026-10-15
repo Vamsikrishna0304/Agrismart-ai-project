@@ -1,0 +1,69 @@
+{
+  "name": "SensorReading",
+  "type": "object",
+  "properties": {
+    "device_id": {
+      "type": "string"
+    },
+    "farm_id": {
+      "type": "string"
+    },
+    "farm_name": {
+      "type": "string"
+    },
+    "sensor_type": {
+      "type": "string",
+      "enum": [
+        "soil_moisture",
+        "air_temperature",
+        "air_humidity",
+        "soil_temperature",
+        "light_intensity"
+      ]
+    },
+    "value": {
+      "type": "number"
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "percent",
+        "celsius",
+        "lux"
+      ]
+    },
+    "recorded_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "simulated",
+        "device_ingest",
+        "manual"
+      ],
+      "default": "simulated",
+      "description": "Where the value came from. Simulated values are generated demo data, never real measurements."
+    },
+    "validation_status": {
+      "type": "string",
+      "enum": [
+        "valid",
+        "out_of_range",
+        "unverified"
+      ],
+      "default": "valid"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "device_id",
+    "farm_id",
+    "sensor_type",
+    "value",
+    "recorded_at"
+  ]
+}

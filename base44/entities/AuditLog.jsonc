@@ -1,0 +1,103 @@
+{
+  "name": "AuditLog",
+  "type": "object",
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "record_created",
+        "record_updated",
+        "record_deleted",
+        "reading_ingested",
+        "readings_simulated",
+        "device_checked",
+        "alert_raised",
+        "irrigation_decided",
+        "crop_recommended",
+        "disease_analysed",
+        "assistant_asked",
+        "digest_sent"
+      ],
+      "description": "What happened. Kept to a fixed set so the console can filter the history reliably."
+    },
+    "summary": {
+      "type": "string",
+      "description": "Plain-language one-liner, written in English like the other records and reports."
+    },
+    "changes": {
+      "type": "string",
+      "description": "Field-level before \u2192 after list for a change, empty when no field value changed."
+    },
+    "entity_name": {
+      "type": "string",
+      "description": "Record type the action touched, e.g. Farm or Alert. Empty for actions with no single record."
+    },
+    "record_id": {
+      "type": "string"
+    },
+    "record_label": {
+      "type": "string",
+      "description": "Human-readable name of the record at the time of the action, kept so the history stays readable after a record is deleted."
+    },
+    "actor_type": {
+      "type": "string",
+      "enum": [
+        "signed_in_user",
+        "anonymous_visitor",
+        "device",
+        "system"
+      ],
+      "default": "system",
+      "description": "Who or what acted. anonymous_visitor is used when the app is in public mode and no account was signed in."
+    },
+    "actor_label": {
+      "type": "string",
+      "description": "How the actor is shown in the console, e.g. 'Device SIM-NODE-01' or 'System: irrigation rule engine'."
+    },
+    "actor_email": {
+      "type": "string",
+      "description": "Email of the signed-in account, when there was one. Never invented for anonymous actions."
+    },
+    "channel": {
+      "type": "string",
+      "enum": [
+        "app_interface",
+        "device_endpoint",
+        "backend_function"
+      ],
+      "default": "backend_function"
+    },
+    "farm_id": {
+      "type": "string"
+    },
+    "farm_name": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "string",
+      "description": "Extra context such as the rule version, model id or counts involved."
+    }
+  },
+  "required": [
+    "action",
+    "summary"
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

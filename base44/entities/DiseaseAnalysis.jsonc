@@ -1,0 +1,75 @@
+{
+  "name": "DiseaseAnalysis",
+  "type": "object",
+  "properties": {
+    "farm_id": {
+      "type": "string"
+    },
+    "farm_name": {
+      "type": "string"
+    },
+    "crop_name": {
+      "type": "string"
+    },
+    "plant_type": {
+      "type": "string",
+      "description": "Plant selected by the user"
+    },
+    "image_uri": {
+      "type": "string",
+      "description": "Private storage uri of the uploaded image"
+    },
+    "outcome": {
+      "type": "string",
+      "enum": [
+        "conclusive",
+        "inconclusive",
+        "unsupported",
+        "error"
+      ],
+      "default": "inconclusive"
+    },
+    "identified_plant": {
+      "type": "string",
+      "description": "Plant the model believes it sees in the image"
+    },
+    "predicted_condition": {
+      "type": "string"
+    },
+    "confidence_percent": {
+      "type": "number"
+    },
+    "image_quality": {
+      "type": "string",
+      "enum": [
+        "good",
+        "fair",
+        "poor"
+      ]
+    },
+    "observations": {
+      "type": "string"
+    },
+    "recommended_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "analysis_method": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "outcome"
+  ]
+}

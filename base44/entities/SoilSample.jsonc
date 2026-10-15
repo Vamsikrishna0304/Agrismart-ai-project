@@ -1,0 +1,60 @@
+{
+  "name": "SoilSample",
+  "type": "object",
+  "properties": {
+    "farm_id": {
+      "type": "string"
+    },
+    "farm_name": {
+      "type": "string"
+    },
+    "sampled_on": {
+      "type": "string",
+      "format": "date"
+    },
+    "nitrogen_kg_ha": {
+      "type": "number",
+      "description": "Available nitrogen, kg/ha"
+    },
+    "phosphorus_kg_ha": {
+      "type": "number",
+      "description": "Available phosphorus, kg/ha"
+    },
+    "potassium_kg_ha": {
+      "type": "number",
+      "description": "Available potassium, kg/ha"
+    },
+    "ph": {
+      "type": "number",
+      "description": "Soil pH, 0-14"
+    },
+    "moisture_percent": {
+      "type": "number",
+      "description": "Volumetric soil moisture, percent"
+    },
+    "temperature_c": {
+      "type": "number",
+      "description": "Soil temperature, degrees Celsius"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "lab_measured",
+        "field_sensor",
+        "estimated"
+      ],
+      "default": "lab_measured"
+    },
+    "method": {
+      "type": "string",
+      "description": "How the sample was taken/tested"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "farm_id",
+    "sampled_on"
+  ]
+}

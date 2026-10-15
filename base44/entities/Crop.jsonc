@@ -1,0 +1,69 @@
+{
+  "name": "Crop",
+  "type": "object",
+  "properties": {
+    "farm_id": {
+      "type": "string",
+      "description": "Farm this planting record belongs to"
+    },
+    "farm_name": {
+      "type": "string"
+    },
+    "crop_name": {
+      "type": "string"
+    },
+    "variety": {
+      "type": "string"
+    },
+    "season": {
+      "type": "string",
+      "enum": [
+        "kharif",
+        "rabi",
+        "zaid",
+        "perennial"
+      ]
+    },
+    "planting_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "growth_stage": {
+      "type": "string",
+      "enum": [
+        "land_preparation",
+        "sowing",
+        "seedling",
+        "vegetative",
+        "flowering",
+        "fruiting",
+        "maturity",
+        "harvested"
+      ],
+      "default": "sowing"
+    },
+    "area_hectares": {
+      "type": "number"
+    },
+    "expected_harvest_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "harvested",
+        "failed"
+      ],
+      "default": "active"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "farm_id",
+    "crop_name"
+  ]
+}

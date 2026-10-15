@@ -1,0 +1,59 @@
+{
+  "name": "Farm",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Farm or field name"
+    },
+    "location": {
+      "type": "string",
+      "description": "Village / town / district"
+    },
+    "region": {
+      "type": "string",
+      "description": "State or region"
+    },
+    "area_hectares": {
+      "type": "number",
+      "description": "Cultivated area in hectares. Measured by the farmer."
+    },
+    "soil_type": {
+      "type": "string",
+      "enum": [
+        "loamy",
+        "clay",
+        "sandy",
+        "silt",
+        "black",
+        "red",
+        "alluvial",
+        "laterite",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "irrigation_type": {
+      "type": "string",
+      "enum": [
+        "rainfed",
+        "canal",
+        "borewell",
+        "drip",
+        "sprinkler",
+        "other"
+      ],
+      "default": "rainfed"
+    },
+    "climate_zone": {
+      "type": "string",
+      "description": "Optional: semi-arid, humid subtropical, etc."
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

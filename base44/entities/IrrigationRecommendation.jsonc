@@ -1,0 +1,93 @@
+{
+  "name": "IrrigationRecommendation",
+  "type": "object",
+  "properties": {
+    "farm_id": {
+      "type": "string"
+    },
+    "farm_name": {
+      "type": "string"
+    },
+    "crop_id": {
+      "type": "string"
+    },
+    "crop_name": {
+      "type": "string"
+    },
+    "growth_stage": {
+      "type": "string"
+    },
+    "soil_moisture_percent": {
+      "type": "number"
+    },
+    "soil_moisture_source": {
+      "type": "string",
+      "enum": [
+        "sensor",
+        "soil_sample",
+        "manual"
+      ]
+    },
+    "reading_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reading_age_minutes": {
+      "type": "number"
+    },
+    "data_freshness": {
+      "type": "string",
+      "enum": [
+        "fresh",
+        "aging",
+        "stale"
+      ]
+    },
+    "rain_forecast_mm": {
+      "type": "number"
+    },
+    "forecast_source": {
+      "type": "string"
+    },
+    "threshold_percent": {
+      "type": "number"
+    },
+    "decision": {
+      "type": "string",
+      "enum": [
+        "irrigate_now",
+        "irrigate_soon",
+        "monitor",
+        "wait",
+        "insufficient_data"
+      ]
+    },
+    "urgency": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "unknown"
+      ],
+      "default": "unknown"
+    },
+    "reason": {
+      "type": "string"
+    },
+    "rule_version": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "farm_id",
+    "decision",
+    "rule_version"
+  ]
+}

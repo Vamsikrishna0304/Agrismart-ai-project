@@ -1,0 +1,50 @@
+{
+  "name": "AssistantMessage",
+  "type": "object",
+  "properties": {
+    "conversation_id": {
+      "type": "string"
+    },
+    "conversation_title": {
+      "type": "string"
+    },
+    "farm_id": {
+      "type": "string"
+    },
+    "role": {
+      "type": "string",
+      "enum": [
+        "user",
+        "assistant"
+      ],
+      "default": "user"
+    },
+    "content": {
+      "type": "string"
+    },
+    "response_source": {
+      "type": "string",
+      "enum": [
+        "live_model",
+        "error"
+      ],
+      "default": "live_model"
+    },
+    "model_id": {
+      "type": "string"
+    },
+    "context_used": {
+      "type": "string",
+      "description": "Summary of the farm records that were given to the assistant"
+    },
+    "sources_note": {
+      "type": "string",
+      "description": "Honest note about whether any trusted source documents were used"
+    }
+  },
+  "required": [
+    "conversation_id",
+    "role",
+    "content"
+  ]
+}
